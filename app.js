@@ -1,12 +1,16 @@
+/* eslint-disable no-undef */
+const port = process.env.PORT || 3000;
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
-const process = process.env.PORT;
+
+/** Connection MongoDB */
+mongoose.connect('mongodb://127.0.0.1/chitter');
 
 app.get('/', (req, res) => {
 	res.send('Hello chitters.');
 });
-
-const port = process || 3000;
+/** Connection Server  */
 app.listen(port, () =>
 	console.log(`Server is running on http://localhost:${port}`)
 );
