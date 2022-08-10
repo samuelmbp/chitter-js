@@ -8,7 +8,7 @@ const posts = mongoose.Schema({
 		maxLength: 200,
 	},
 	created_at: {
-		type: Date
+		type: String,
 	},
 });
 
