@@ -1,19 +1,25 @@
-const express = require('express');
-const moment = require('moment');
 const { Posts } = require('../models/posts');
+
+const moment = require('moment');
+const express = require('express');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-	const created_at = moment().format('L');
+	const createdAt = moment().format('L');
+	const message = req.body.message.length;
+	const minCharactersLength = 4;
+
+	if (message < minCharactersLength)
+		return res
+			.status(400)
+			.send('The message cannot be empty or less than four characters long.');
 
 	const createNewPost = new Posts({
 		message: req.body.message,
-		created_at: created_at,
+		createdAt: createdAt,
 	});
 
-	console.log(created_at);
-	const post = await createNewPost.save();
-	console.log(post);
+	await createNewPost.save();
 	res.send(createNewPost);
 });
 

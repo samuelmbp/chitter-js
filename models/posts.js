@@ -5,9 +5,9 @@ const posts = mongoose.Schema({
 		type: String,
 		required: true,
 		minLength: 4,
-		maxLength: 200,
+		maxLength: 255,
 	},
-	created_at: {
+	createdAt: {
 		type: String,
 	},
 });
