@@ -23,4 +23,8 @@ router.post('/', async (req, res) => {
 	res.send(createNewPost);
 });
 
+// router.get('/', async (req, res) => {
+// 	res.status(200).json('Hello, chitter. Get request.');
+// });
+
 module.exports = router;
