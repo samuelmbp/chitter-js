@@ -1,8 +1,13 @@
-const { Posts } = require('../models/posts');
-
 const moment = require('moment');
 const express = require('express');
 const router = express.Router();
+
+const { Posts } = require('../models/posts');
+
+router.get('/', async (req, res) => {
+	const posts = await Posts.find();
+	res.send(posts);
+});
 
 router.post('/', async (req, res) => {
 	const createdAt = moment().format('L');
@@ -22,9 +27,5 @@ router.post('/', async (req, res) => {
 	await createNewPost.save();
 	res.send(createNewPost);
 });
-
-// router.get('/', async (req, res) => {
-// 	res.status(200).json('Hello, chitter. Get request.');
-// });
 
 module.exports = router;
