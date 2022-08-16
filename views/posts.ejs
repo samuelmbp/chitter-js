@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter</title>
+</head>
+<body>
+  <ul class="#">
+    <li class="#">
+      <% results.forEach(function(result) { %>
+        <h4 class="#"><%- result.message %></h4>
+        <span>Post created on: <%- result.createdAt %> </span>
+      <% }) %>
+    </li>
+  </ul>
+  <script src="ejs.js"></script>
+</body>
+</html>
